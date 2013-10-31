@@ -15,19 +15,12 @@ But most probably, it will be alright! ;)
 
 # Installation
 
-You need the address of sys_call_table in your kernel. Use
+Tested in  3.2.0-4-amd64, and intel i7
 
-    $ grep sys_call_table /boot/System.map-3.0.0-1-amd64
-    ffffffff81400300 R sys_call_table
+Right now, the module finds by itself the address of the 
+sys_call_table. 
 
-on the respective System.map of your kernel to find out the address
-
-Now fire up kernelroll.c and add yours:
-
-    void **sys_call_table = (void **)0xffffffff81400300;
-
-This will probably be simplified in the future, but as sys_call_table isn't
-exported anymore in 2.6 kernels, we have to use some tricks.
+Have a look at https://bbs.archlinux.org/viewtopic.php?id=139406 for details
 
 Compile with:
 
